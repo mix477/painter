@@ -77,6 +77,35 @@ void Figure::createLine(int x0, int y0, int x1, int y1, vector<Point> &vec)
     }
 }
 
+void Figure::createCircle(int x0, int y0, int radius, vector<Point> &vec)
+{
+    int x = 0;
+    int y = radius;
+    int delta = 1 - 2 * radius;
+    int error = 0;
+    while(y >= 0) {
+        vec.push_back(Point(x0 + x, y0 + y));
+        vec.push_back(Point(x0 + x, y0 - y));
+        vec.push_back(Point(x0 - x, y0 + y));
+        vec.push_back(Point(x0 - x, y0 - y));
+        error = 2 * (delta + y) - 1;
+        if(delta < 0 && error <= 0) {
+            ++x;
+            delta += 2 * x + 1;
+            continue;
+        }
+        error = 2 * (delta - x) - 1;
+        if(delta > 0 && error > 0) {
+            --y;
+            delta += 1 - 2 * y;
+            continue;
+        }
+        ++x;
+        delta += 2 * (x - y);
+        --y;
+    }
+}
+
 Box::Box()
 {
 
@@ -115,4 +144,24 @@ void Triangle::generatePoints(vector<Point> &vec)
     createLine(m_x, m_y, m_x, m_y + m_size, vec);
     createLine(m_x, m_y + m_size, m_x + m_size, m_y + m_size, vec);
     createLine(m_x, m_y, m_x + m_size, m_y + m_size, vec);
+}
+
+Circle::Circle()
+{
+
+}
+
+Circle::~Circle()
+{
+
+}
+
+Circle::Circle(int size, int posX, int posY) : Figure(size, posX, posY)
+{
+
+}
+
+void Circle::generatePoints(vector<Point> &vec)
+{
+    createCircle(m_x + m_size + 1, m_y + m_size, m_size, vec);
 }

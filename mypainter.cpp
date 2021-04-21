@@ -31,6 +31,18 @@ void MyPainter::addTriangle(int size, int posX, int posY)
     m_figs.push_back(t);
 }
 
+void MyPainter::addCircle(int size, int posX, int posY)
+{
+    Circle *c = new Circle(size, posX, posY);
+    m_figs.push_back(c);
+}
+
+void MyPainter::drawToConsole()
+{
+    for(int i = 0; i < 100; i++)
+        cout << "#";
+}
+
 void MyPainter::draw(QImage &im)
 {
     vector<Point> vec;

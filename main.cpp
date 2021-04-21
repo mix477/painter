@@ -10,11 +10,11 @@ int main()
     QImage im = QImage(h, w, QImage::Format_RGB888);
 
     MyPainter mp;
-    mp.addBox(10, 0, 0);
-    mp.addBox(30, 20, 20);
-    mp.addBox(80, 50, 34);
-    mp.addTriangle(200, 15, 180);
+    mp.addBox(40, 0, 0);
+    mp.addCircle(40, 0, 0);
+    mp.addTriangle(40, 0, 0);
     mp.draw(im);
+    mp.drawToConsole();
     im.save("qqq.bmp");
 
     return 0;

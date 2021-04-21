@@ -62,6 +62,8 @@ protected:
 
     void createLine(int x0, int y0, int x1, int y1, vector<Point> &vec);
 
+    void createCircle(int x0, int y0, int radius, vector<Point> &vec);
+
 };
 
 class Box : public Figure
@@ -97,6 +99,8 @@ public:
     ~Circle();
 
     Circle(int size, int posX = 0, int posY = 0);
+
+    void generatePoints(vector<Point> &vec);
 };
 
 #endif // FIGURES_H
