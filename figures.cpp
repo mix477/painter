@@ -131,6 +131,7 @@ void Figure::createCircle(int x0, int y0, int radius, vector<Point> &vec)
     }
 }
 
+
 Box::Box() : Figure(0, -1, -1)
 {
 
@@ -173,6 +174,7 @@ void Triangle::generatePoints(vector<Point> &vec)
     createLine(m_x, m_y + m_size, m_x + m_size, m_y + m_size, vec);
     createLine(m_x, m_y, m_x + m_size, m_y + m_size, vec);
 }
+
 
 Circle::Circle() : Figure(0, -1, -1)
 {

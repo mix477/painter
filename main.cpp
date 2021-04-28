@@ -24,9 +24,8 @@ int main(int argc, char *argv[])
         cout << argv[i] << endl;
     }
 //    MyPainter mp;
-//    showDemo(mp);
+    showDemo(mp);
 
-//    im.save("qqq.bmp");
 
     return 0;
 }
